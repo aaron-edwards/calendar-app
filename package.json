@@ -2,13 +2,17 @@
   "name": "calendar-app",
   "packageManager": "yarn@3.1.1",
   "private": true,
+  "homepage": "https://aaron-edwards.github.io/calendar-app",
   "scripts": {
-    "start": "yarn workspaces foreach -pi run start"
+    "start": "yarn workspaces foreach -pi run start",
+    "predeploy": "yarn workspaces foreach -pi run build",
+    "deploy": "gh-pages -d packages/ui/build"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "typescript": "^4.5.4"
   },
   "devDependencies": {
