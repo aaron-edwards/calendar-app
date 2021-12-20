@@ -1,15 +1,12 @@
 {
   "files": {
-    "main.css": "https://aaron-edwards.github.io/calendar-app/static/css/main.e6c13ad2.css",
-    "main.js": "https://aaron-edwards.github.io/calendar-app/static/js/main.d3104dbb.js",
-    "static/js/20.3728f48e.chunk.js": "https://aaron-edwards.github.io/calendar-app/static/js/20.3728f48e.chunk.js",
+    "main.js": "https://aaron-edwards.github.io/calendar-app/static/js/main.8fa68d27.js",
+    "static/js/20.6a114ffa.chunk.js": "https://aaron-edwards.github.io/calendar-app/static/js/20.6a114ffa.chunk.js",
     "index.html": "https://aaron-edwards.github.io/calendar-app/index.html",
-    "main.e6c13ad2.css.map": "https://aaron-edwards.github.io/calendar-app/static/css/main.e6c13ad2.css.map",
-    "main.d3104dbb.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/main.d3104dbb.js.map",
-    "20.3728f48e.chunk.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/20.3728f48e.chunk.js.map"
+    "main.8fa68d27.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/main.8fa68d27.js.map",
+    "20.6a114ffa.chunk.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/20.6a114ffa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.d3104dbb.js"
+    "static/js/main.8fa68d27.js"
   ]
 }
