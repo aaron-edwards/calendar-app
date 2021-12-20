@@ -7,10 +7,18 @@ describe('App', () => {
       const { baseElement } = render(<App />);
       expect(baseElement).not.toHaveTextContent('Settings');
     });
+
     it('should display the Settings page when the settings button is clicked', () => {
       const { getByRole, baseElement } = render(<App />);
       getByRole('button').click();
       expect(baseElement).toHaveTextContent('Settings');
+    });
+
+    it('should close Settings page if pressed twice', () => {
+      const { getByRole, baseElement } = render(<App />);
+      getByRole('button').click();
+      getByRole('button').click();
+      expect(baseElement).not.toHaveTextContent('Settings');
     });
   });
 });

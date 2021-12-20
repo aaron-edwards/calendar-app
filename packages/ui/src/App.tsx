@@ -1,17 +1,11 @@
-import { IconButton, Box, Paper, Typography } from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
-import { useCallback, useState } from 'react';
-
-enum Pages {
-  Settings = 'Settings',
-}
+import { Box, Paper, Typography } from '@mui/material';
+import { useState } from 'react';
+import Menu from './Menu';
+import { Page } from './Pages';
 
 function App() {
-  const [currentPage, setPage] = useState<Pages | undefined>(undefined);
-  const onSettings = useCallback(
-    () => setPage((page) => (page === Pages.Settings ? undefined : Pages.Settings)),
-    [setPage]
-  );
+  const [currentPage, setPage] = useState<Page | null>(null); 
+  
   return (
     <Box
       sx={{
@@ -29,9 +23,7 @@ function App() {
         }}
       >
         <Paper square elevation={currentPage ? 2 : undefined}>
-          <IconButton size="large" onClick={onSettings}>
-            <SettingsIcon fontSize="inherit" />
-          </IconButton>
+          <Menu page={currentPage} setPage={setPage} />
         </Paper>
         {currentPage && (
           <Box sx={{ width: 300 }}>
