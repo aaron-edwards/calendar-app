@@ -2584,7 +2584,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "jest-watch-typeahead",
-        "virtual:20cba7b4779de76c0b1d7a6573cf04b3dac5df6159ffc3f8a2c1e1f0f0e7bbdd9a132a658bda6acfda416081dd2bbd3608f0ef3d3d24f751197a6411508cb962#npm:1.0.0"
+        "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.6.5"
       ],
       [
         "jest-watcher",
@@ -14394,6 +14394,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jest-watch-typeahead", [
+        ["npm:0.6.5", {
+          "packageLocation": "./.yarn/cache/jest-watch-typeahead-npm-0.6.5-aacaa3cef5-01f5113e51.zip/node_modules/jest-watch-typeahead/",
+          "packageDependencies": [
+            ["jest-watch-typeahead", "npm:0.6.5"]
+          ],
+          "linkType": "SOFT",
+        }],
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/jest-watch-typeahead-npm-1.0.0-0c228b0e38-388d518974.zip/node_modules/jest-watch-typeahead/",
           "packageDependencies": [
@@ -14414,6 +14421,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["slash", "npm:4.0.0"],
             ["string-length", "npm:5.0.1"],
             ["strip-ansi", "npm:7.0.1"]
+          ],
+          "packagePeers": [
+            "@types/jest",
+            "jest"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.6.5", {
+          "packageLocation": "./.yarn/__virtual__/jest-watch-typeahead-virtual-a2011dbf3c/0/cache/jest-watch-typeahead-npm-0.6.5-aacaa3cef5-01f5113e51.zip/node_modules/jest-watch-typeahead/",
+          "packageDependencies": [
+            ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.6.5"],
+            ["@types/jest", "npm:27.0.3"],
+            ["ansi-escapes", "npm:4.3.2"],
+            ["chalk", "npm:4.1.2"],
+            ["jest", null],
+            ["jest-regex-util", "npm:27.4.0"],
+            ["jest-watcher", "npm:27.4.2"],
+            ["slash", "npm:3.0.0"],
+            ["string-length", "npm:4.0.2"],
+            ["strip-ansi", "npm:6.0.1"]
           ],
           "packagePeers": [
             "@types/jest",
@@ -19799,6 +19826,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.0.0"],
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.27.1"],
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.3.0"],
+            ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.6.5"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:17.0.2"],
             ["react-scripts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.0.0"],

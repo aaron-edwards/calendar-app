@@ -7296,6 +7296,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-watch-typeahead@npm:0.6.5":
+  version: 0.6.5
+  resolution: "jest-watch-typeahead@npm:0.6.5"
+  dependencies:
+    ansi-escapes: ^4.3.1
+    chalk: ^4.0.0
+    jest-regex-util: ^27.0.0
+    jest-watcher: ^27.0.0
+    slash: ^3.0.0
+    string-length: ^4.0.1
+    strip-ansi: ^6.0.0
+  peerDependencies:
+    jest: ^26.0.0 || ^27.0.0
+  checksum: 01f5113e51cb49365661986144bfc6520d9e8d74d8a5d7527d5edb8e2bc8f128f6cf7baa512bb6bb35fdbb86fa92f0b26a4a7a4db66ac4dc3f7ea603ba48ca81
+  languageName: node
+  linkType: hard
+
 "jest-watch-typeahead@npm:^1.0.0":
   version: 1.0.0
   resolution: "jest-watch-typeahead@npm:1.0.0"
@@ -11469,6 +11486,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: ^7.27.1
     eslint-plugin-react-hooks: ^4.3.0
+    jest-watch-typeahead: 0.6.5
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 5.0.0
