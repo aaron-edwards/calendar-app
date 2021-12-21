@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Paper, Slide, Typography } from '@mui/material';
 import { useState } from 'react';
 import Menu from './Menu';
 import { Page } from './Pages';
@@ -7,23 +7,23 @@ function App() {
   const [currentPage, setPage] = useState<Page | null>(null);
 
   return (
-    <Box
+    <Paper
+      square
+      elevation={0}
       sx={{
         height: '100vh',
-        width: '100vw',
         display: 'flex',
       }}
     >
-      <Paper square elevation={4}>
+      <Paper sx={{ zIndex: 1 }} square elevation={4}>
         <Menu page={currentPage} setPage={setPage} />
       </Paper>
-      {currentPage && (
-        <Paper elevation={2} square sx={{ width: 300 }}>
+      <Slide direction="right" in={currentPage !== null} mountOnEnter unmountOnExit>
+        <Paper square elevation={2} sx={{ width: 300 }}>
           <Typography variant="h4">{currentPage}</Typography>
         </Paper>
-      )}
-      <Paper elevation={1} square sx={{ flexGrow: 1 }} />
-    </Box>
+      </Slide>
+    </Paper>
   );
 }
 
