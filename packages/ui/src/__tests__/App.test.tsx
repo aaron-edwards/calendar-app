@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import App from '../App';
 
 describe('App', () => {
@@ -10,15 +10,16 @@ describe('App', () => {
 
     it('should display the Settings page when the settings button is clicked', () => {
       const { getByRole, baseElement } = render(<App />);
-      getByRole('button').click();
+      getByRole('button', { name: 'settings' }).click();
       expect(baseElement).toHaveTextContent('Settings');
     });
 
-    it('should close Settings page if pressed twice', () => {
+    it('should close Settings page if pressed twice', async () => {
       const { getByRole, baseElement } = render(<App />);
-      getByRole('button').click();
-      getByRole('button').click();
-      expect(baseElement).not.toHaveTextContent('Settings');
+      getByRole('button', { name: 'settings' }).click();
+      getByRole('button', { name: 'settings' }).click();
+
+      waitFor(() => expect(baseElement).not.toHaveTextContent('Settings'));
     });
   });
 });

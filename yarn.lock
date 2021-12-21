@@ -2625,6 +2625,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.merge@npm:^4.6.6":
+  version: 4.6.6
+  resolution: "@types/lodash.merge@npm:4.6.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 62ec56f14b3077f7174497856e9b277db811943cd11b1d67d2a8e51a1803bd49319e8aaf62e745c696af972354a575dbb8a85d3aecf4ae774caf062dc31ac46e
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.14.178
+  resolution: "@types/lodash@npm:4.14.178"
+  checksum: a69a04a60bfc5257c3130a554b4efa0c383f0141b7b3db8ab7cf07ad2a46ea085fce66d0242da41da7e5647b133d5dfb2c15add9cbed8d7fef955e4a1e5b3128
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 17.0.1
   resolution: "@types/node@npm:17.0.1"
@@ -12010,6 +12026,7 @@ __metadata:
     "@testing-library/react": ^12.1.2
     "@testing-library/user-event": ^13.5.0
     "@types/jest": ^27.0.3
+    "@types/lodash.merge": ^4.6.6
     "@types/node": ^16.11.14
     "@types/react": ^17.0.37
     "@types/react-dom": ^17.0.11
@@ -12026,6 +12043,7 @@ __metadata:
     eslint-plugin-react: ^7.27.1
     eslint-plugin-react-hooks: ^4.3.0
     jest-watch-typeahead: 0.6.5
+    lodash.merge: ^4.6.2
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 5.0.0

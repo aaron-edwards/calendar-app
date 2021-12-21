@@ -1,10 +1,25 @@
-import { Paper, Slide, Typography } from '@mui/material';
-import { useState } from 'react';
+import { Paper, Slide } from '@mui/material';
+import { useCallback, useState } from 'react';
 import Menu from './Menu';
-import { Page } from './Pages';
+import Pages, { Page } from './Pages';
+
+type State = {
+  page: Page;
+  menuOpen: boolean;
+};
 
 function App() {
-  const [currentPage, setPage] = useState<Page | null>(null);
+  const [{ page, menuOpen }, setState] = useState<State>({ page: Page.Settings, menuOpen: false });
+  const setPage = useCallback(
+    (newPage: Page) => {
+      if (newPage) {
+        setState({ menuOpen: true, page: newPage });
+      } else {
+        setState((state) => ({ menuOpen: false, page: state.page }));
+      }
+    },
+    [setState]
+  );
 
   return (
     <Paper
@@ -16,11 +31,11 @@ function App() {
       }}
     >
       <Paper sx={{ zIndex: 1 }} square elevation={4}>
-        <Menu page={currentPage} setPage={setPage} />
+        <Menu page={menuOpen ? page : undefined} setPage={setPage} />
       </Paper>
-      <Slide direction="right" in={currentPage !== null} mountOnEnter unmountOnExit>
+      <Slide direction="right" in={menuOpen} mountOnEnter unmountOnExit>
         <Paper square elevation={2} sx={{ width: 300 }}>
-          <Typography variant="h4">{currentPage}</Typography>
+          <Pages page={page} />
         </Paper>
       </Slide>
     </Paper>

@@ -883,6 +883,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.0.29"
       ],
       [
+        "@types/lodash",
+        "npm:4.14.178"
+      ],
+      [
+        "@types/lodash.merge",
+        "npm:4.6.6"
+      ],
+      [
         "@types/node",
         "npm:16.11.14"
       ],
@@ -8699,6 +8707,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json5-npm-0.0.29-f63a7916bd-e60b153664.zip/node_modules/@types/json5/",
           "packageDependencies": [
             ["@types/json5", "npm:0.0.29"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash", [
+        ["npm:4.14.178", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.178-5433b9ed68-a69a04a60b.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.178"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash.merge", [
+        ["npm:4.6.6", {
+          "packageLocation": "./.yarn/cache/@types-lodash.merge-npm-4.6.6-1bd609f0f2-62ec56f14b.zip/node_modules/@types/lodash.merge/",
+          "packageDependencies": [
+            ["@types/lodash.merge", "npm:4.6.6"],
+            ["@types/lodash", "npm:4.14.178"]
           ],
           "linkType": "HARD",
         }]
@@ -20688,6 +20715,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.2"],
             ["@testing-library/user-event", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.5.0"],
             ["@types/jest", "npm:27.0.3"],
+            ["@types/lodash.merge", "npm:4.6.6"],
             ["@types/node", "npm:16.11.14"],
             ["@types/react", "npm:17.0.37"],
             ["@types/react-dom", "npm:17.0.11"],
@@ -20704,6 +20732,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.27.1"],
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.3.0"],
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.6.5"],
+            ["lodash.merge", "npm:4.6.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:17.0.2"],
             ["react-scripts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.0.0"],

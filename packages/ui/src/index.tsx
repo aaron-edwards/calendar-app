@@ -1,22 +1,16 @@
-import { CssBaseline, createTheme } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@emotion/react';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-});
+import { SettingsProvider } from './SettingsContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
-    <ThemeProvider theme={theme}>
+    <SettingsProvider>
+      <CssBaseline />
       <App />
-    </ThemeProvider>
+    </SettingsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
