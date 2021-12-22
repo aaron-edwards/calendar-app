@@ -4791,6 +4791,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.27.0":
+  version: 2.27.0
+  resolution: "date-fns@npm:2.27.0"
+  checksum: db62036b3816eb0322c9532b353beac7f660a91e1a55dbd21c14893c621ebb8509f21c66ba287844dabd34dee0207edd54a9537bce6bb7cab9383dedc6b8bc90
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9, debug@npm:^2.6.0, debug@npm:^2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -12076,6 +12083,7 @@ __metadata:
     "@types/testing-library__jest-dom": ^5.14.2
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
+    date-fns: ^2.27.0
     eslint: ^8.5.0
     eslint-config-airbnb: ^19.0.2
     eslint-config-airbnb-typescript: ^16.1.0

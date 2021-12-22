@@ -1,5 +1,6 @@
-import { Paper, Slide } from '@mui/material';
+import { Box, Collapse, Paper } from '@mui/material';
 import { useCallback, useState } from 'react';
+import CalendarContainer from './Calendar/CalendarContainer';
 import Menu from './Menu';
 import Pages, { Page } from './Pages';
 
@@ -30,14 +31,17 @@ function App() {
         display: 'flex',
       }}
     >
-      <Paper sx={{ zIndex: 1 }} square elevation={4}>
-        <Menu page={menuOpen ? page : undefined} setPage={setPage} />
-      </Paper>
-      <Slide direction="right" in={menuOpen} mountOnEnter unmountOnExit>
-        <Paper square elevation={2} sx={{ width: 300 }}>
-          <Pages page={page} />
+      <Box sx={{ display: 'flex' }}>
+        <Paper sx={{ zIndex: 1 }} square elevation={4}>
+          <Menu page={menuOpen ? page : undefined} setPage={setPage} />
         </Paper>
-      </Slide>
+        <Collapse orientation="horizontal" in={menuOpen} mountOnEnter unmountOnExit>
+          <Paper square elevation={2} sx={{ height: '100%', width: 300 }}>
+            <Pages page={page} />
+          </Paper>
+        </Collapse>
+      </Box>
+      <CalendarContainer />
     </Paper>
   );
 }

@@ -1667,6 +1667,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:2.0.0"
       ],
       [
+        "date-fns",
+        "npm:2.27.0"
+      ],
+      [
         "debug",
         "virtual:bd5ac53f2a4d13161e4becd2185852df3b4231ea7460becce6b80faf113589c84e6d5a7592f2b45846dcda321b203d871f080c12cd9638e02938ccdf6bfbd6ee#npm:4.3.3"
       ],
@@ -11557,6 +11561,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["date-fns", [
+        ["npm:2.27.0", {
+          "packageLocation": "./.yarn/cache/date-fns-npm-2.27.0-8177de8a5e-db62036b38.zip/node_modules/date-fns/",
+          "packageDependencies": [
+            ["date-fns", "npm:2.27.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["debug", [
         ["npm:2.6.9", {
           "packageLocation": "./.yarn/cache/debug-npm-2.6.9-7d4cb597dc-d2f51589ca.zip/node_modules/debug/",
@@ -20799,6 +20812,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:e5cf16538da1faac25b1dff8ac92309daef107e61c202aecd5e26ea798f052ebf3f59fcee0fbffb7c23e7c78a9b2ef876a35e350471ce1f34deac301cb2c44a3#npm:5.7.0"],
             ["@typescript-eslint/parser", "virtual:e5cf16538da1faac25b1dff8ac92309daef107e61c202aecd5e26ea798f052ebf3f59fcee0fbffb7c23e7c78a9b2ef876a35e350471ce1f34deac301cb2c44a3#npm:5.7.0"],
+            ["date-fns", "npm:2.27.0"],
             ["eslint", "npm:8.5.0"],
             ["eslint-config-airbnb", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:19.0.2"],
             ["eslint-config-airbnb-typescript", "virtual:e5cf16538da1faac25b1dff8ac92309daef107e61c202aecd5e26ea798f052ebf3f59fcee0fbffb7c23e7c78a9b2ef876a35e350471ce1f34deac301cb2c44a3#npm:16.1.0"],
