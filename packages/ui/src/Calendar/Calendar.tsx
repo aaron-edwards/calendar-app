@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, useTheme } from '@mui/material';
 import { addDays, differenceInCalendarDays, format, isEqual } from 'date-fns';
 import React from 'react';
 
@@ -9,6 +9,9 @@ type Props = {
 
 export function Calendar({ start, end }: Props) {
   const columns = Math.min(7, differenceInCalendarDays(end, start));
+  const theme = useTheme();
+  const borderColour =
+    theme.palette.grey[theme.palette.mode === 'dark' ? 800 : 200];
   return (
     <Grid container columns={columns}>
       {Array.from({ length: columns }, (_, index) => {
@@ -19,8 +22,8 @@ export function Calendar({ start, end }: Props) {
             item
             xs={1}
             sx={{
-              borderBottom: '1px solid grey',
-              borderLeft: index > 0 ? '1px solid grey' : undefined,
+              borderBottom: `2px solid ${borderColour}`,
+              borderLeft: index > 0 ? `1px solid ${borderColour}` : undefined,
             }}
           >
             <Typography variant="h5" textAlign="center">
