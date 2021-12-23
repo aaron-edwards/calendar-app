@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { addDays, format } from 'date-fns';
-import { Calendar } from '../Calendar';
+import Calendar from '../Calendar';
 
 const MONDAY_6_12 = new Date('2021-12-06');
 
