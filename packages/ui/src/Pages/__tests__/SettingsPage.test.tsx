@@ -1,7 +1,11 @@
 import { render } from '@testing-library/react';
 import merge from 'lodash.merge';
 import { ReactElement } from 'react';
-import { defaultSettings, Settings, SettingsContext } from '../../SettingsContext';
+import {
+  defaultSettings,
+  Settings,
+  SettingsContext,
+} from '../../SettingsContext';
 import { DeepPartial } from '../../types';
 import SettingsPage from '../SettingsPage';
 
@@ -11,7 +15,13 @@ const settingsRenderer = (
   updateSettings: (newSettings: DeepPartial<Settings>) => void = () => undefined
 ) =>
   render(
-    <SettingsContext.Provider value={merge({}, { settings: defaultSettings }, { settings, updateSettings })}>
+    <SettingsContext.Provider
+      value={merge(
+        {},
+        { settings: defaultSettings },
+        { settings, updateSettings }
+      )}
+    >
       {ui}
     </SettingsContext.Provider>
   );
@@ -23,22 +33,29 @@ describe('<SettingsPage />', () => {
         initial    | checked  | result
         ${'light'} | ${false} | ${'dark'}
         ${'dark'}  | ${true}  | ${'light'}
-      `('when dark mode is $initial, should change to $result', ({ initial, checked, result }) => {
-        const updateSettings = jest.fn();
-        const { getByRole } = settingsRenderer(
-          <SettingsPage />,
-          { theme: { palette: { mode: initial } } },
-          updateSettings
-        );
-        const darkModeToggle = getByRole('checkbox', { name: 'Use dark mode' });
-        if (checked) {
-          expect(darkModeToggle).toBeChecked();
-        } else {
-          expect(darkModeToggle).not.toBeChecked();
+      `(
+        'when dark mode is $initial, should change to $result',
+        ({ initial, checked, result }) => {
+          const updateSettings = jest.fn();
+          const { getByRole } = settingsRenderer(
+            <SettingsPage />,
+            { theme: { palette: { mode: initial } } },
+            updateSettings
+          );
+          const darkModeToggle = getByRole('checkbox', {
+            name: 'Use dark mode',
+          });
+          if (checked) {
+            expect(darkModeToggle).toBeChecked();
+          } else {
+            expect(darkModeToggle).not.toBeChecked();
+          }
+          darkModeToggle.click();
+          expect(updateSettings).toHaveBeenCalledWith({
+            theme: { palette: { mode: result } },
+          });
         }
-        darkModeToggle.click();
-        expect(updateSettings).toHaveBeenCalledWith({ theme: { palette: { mode: result } } });
-      });
+      );
     });
   });
 });

@@ -7,7 +7,7 @@ module.exports = {
     "plugin:react/recommended",
     "airbnb",
     "airbnb-typescript",
-    "prettier",
+    "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -20,7 +20,6 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "prettier", "import"],
   rules: {
-    "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
     "react/require-default-props": "off"

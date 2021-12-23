@@ -1,4 +1,12 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, Switch, Typography } from '@mui/material';
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Switch,
+  Typography,
+} from '@mui/material';
 import React, { useCallback, useContext } from 'react';
 import { SettingsContext } from '../SettingsContext';
 
@@ -6,7 +14,9 @@ export default function SettingsPage() {
   const { settings, updateSettings } = useContext(SettingsContext);
   const updateThemeMode = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
-      updateSettings({ theme: { palette: { mode: e.target.checked ? 'dark' : 'light' } } }),
+      updateSettings({
+        theme: { palette: { mode: e.target.checked ? 'dark' : 'light' } },
+      }),
     [updateSettings]
   );
   return (

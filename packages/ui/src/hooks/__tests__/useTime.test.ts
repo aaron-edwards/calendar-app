@@ -5,7 +5,9 @@ import useTime from '../useTime';
 describe('useTime', () => {
   const INITIAL_TIME = new Date('2021-12-22').getTime();
   const DELAY = 5_000;
-  beforeEach(() => jest.useFakeTimers().setSystemTime(new Date(INITIAL_TIME).getTime()));
+  beforeEach(() =>
+    jest.useFakeTimers().setSystemTime(new Date(INITIAL_TIME).getTime())
+  );
   afterAll(() => jest.useRealTimers());
 
   it('should start with the current time', () => {

@@ -10,7 +10,10 @@ type State = {
 };
 
 function App() {
-  const [{ page, menuOpen }, setState] = useState<State>({ page: Page.Settings, menuOpen: false });
+  const [{ page, menuOpen }, setState] = useState<State>({
+    page: Page.Settings,
+    menuOpen: false,
+  });
   const setPage = useCallback(
     (newPage: Page) => {
       if (newPage) {
@@ -35,7 +38,12 @@ function App() {
         <Paper sx={{ zIndex: 1 }} square elevation={4}>
           <Menu page={menuOpen ? page : undefined} setPage={setPage} />
         </Paper>
-        <Collapse orientation="horizontal" in={menuOpen} mountOnEnter unmountOnExit>
+        <Collapse
+          orientation="horizontal"
+          in={menuOpen}
+          mountOnEnter
+          unmountOnExit
+        >
           <Paper square elevation={2} sx={{ height: '100%', width: 300 }}>
             <Pages page={page} />
           </Paper>
