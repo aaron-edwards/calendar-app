@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useTheme } from '@mui/material';
+import { Box, Chip, Grid, Typography, useTheme } from '@mui/material';
 import { addDays, differenceInCalendarDays, format, isEqual } from 'date-fns';
 import React from 'react';
 
@@ -59,7 +59,11 @@ function Calendar({ start, end }: Props) {
                   index % columns > 0 ? `1px solid ${borderColour}` : undefined,
               }}
             >
-              {format(day, 'MMM dd')}
+              <Chip
+                label={format(day, 'MMM dd')}
+                color="primary"
+                size="small"
+              />
             </Grid>
           );
         })}
