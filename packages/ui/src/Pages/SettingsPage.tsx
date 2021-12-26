@@ -1,9 +1,9 @@
 import {
-  Box,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Stack,
   Switch,
   Typography,
 } from '@mui/material';
@@ -20,22 +20,25 @@ export default function SettingsPage() {
     [updateSettings]
   );
   return (
-    <Box>
-      <Typography variant="h4">Settings</Typography>
-      <List>
-        <ListItem aria-label="dark-mode">
-          <ListItemIcon />
-          <ListItemText primary="Use dark mode" id="dark-mode-label" />
-          <Switch
-            aria-label="Use dark mode"
-            inputProps={{
-              'aria-labelledby': 'dark-mode-label',
-            }}
-            checked={settings.theme.palette.mode === 'dark'}
-            onChange={updateThemeMode}
-          />
-        </ListItem>
-      </List>
-    </Box>
+    <Stack>
+      <Typography variant="h5">Settings</Typography>
+      <Stack>
+        <Typography variant="h6">Theme</Typography>
+        <List>
+          <ListItem aria-label="dark-mode">
+            <ListItemIcon />
+            <ListItemText primary="Use dark mode" id="dark-mode-label" />
+            <Switch
+              aria-label="Use dark mode"
+              inputProps={{
+                'aria-labelledby': 'dark-mode-label',
+              }}
+              checked={settings.theme.palette.mode === 'dark'}
+              onChange={updateThemeMode}
+            />
+          </ListItem>
+        </List>
+      </Stack>
+    </Stack>
   );
 }

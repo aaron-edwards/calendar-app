@@ -1,10 +1,14 @@
 import { CircularProgress, Stack } from '@mui/material';
-import { createContext, FC, useMemo, useState } from 'react';
 import {
-  useGoogleLogin,
-  GoogleLoginResponse,
-  useGoogleLogout,
-} from 'react-google-login';
+  createContext,
+  FC,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
+import { useGoogleLogin, GoogleLoginResponse } from 'react-google-login';
+import { defaultSettings, SettingsContext } from './SettingsContext';
 
 const clientId =
   '367871961450-kdu4665nnbbpl8bsmg2d6pseamtovhrf.apps.googleusercontent.com';
@@ -21,7 +25,7 @@ type Token = {
   expiresAt: number;
 };
 
-type Auth = {
+export type Auth = {
   token: Token;
   profile: Profile;
 };
@@ -39,12 +43,15 @@ export const AuthContext = createContext<{
 });
 
 export const AuthProvider: FC = ({ children }) => {
+  const { setSettings } = useContext(SettingsContext);
   const [auth, setAuth] = useState<Auth | null>(null);
   const { signIn, loaded } = useGoogleLogin({
     clientId,
     responseType: 'id_token token',
     accessType: 'online',
     cookiePolicy: 'single_host_origin',
+    scope:
+      'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/calendar.events.readonly',
     isSignedIn: true,
     onSuccess: (responese: GoogleLoginResponse) => {
       setAuth({
@@ -63,14 +70,22 @@ export const AuthProvider: FC = ({ children }) => {
     },
   });
 
+  const signOut = useCallback(() => {
+    const authAPI = (window as any).gapi?.auth2?.getAuthInstance();
+    authAPI?.disconnect();
+    authAPI?.signOut();
+    setAuth(null);
+    setSettings(defaultSettings);
+  }, []);
+
   const value = useMemo(
-    () => ({ auth, signIn, loaded, signOut: () => undefined }),
-    [auth, signIn, loaded]
+    () => ({ auth, signIn, loaded, signOut }),
+    [auth, signIn, loaded, signOut]
   );
 
   return (
     <AuthContext.Provider value={value}>
-      {loaded ? (
+      {value.loaded ? (
         children
       ) : (
         <Stack

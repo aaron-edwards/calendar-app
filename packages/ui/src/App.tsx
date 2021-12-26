@@ -1,5 +1,6 @@
 import { Box, Collapse, Paper } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
+import { AuthContext } from './AuthContext';
 import CalendarContainer from './Calendar/CalendarContainer';
 import Menu from './Menu';
 import Pages, { Page } from './Pages';
@@ -10,6 +11,8 @@ type State = {
 };
 
 function App() {
+  const { auth } = useContext(AuthContext);
+
   const [{ page, menuOpen }, setState] = useState<State>({
     page: Page.Settings,
     menuOpen: false,
@@ -50,7 +53,7 @@ function App() {
         </Collapse>
       </Box>
       <Box sx={{ width: '100%', height: '100%' }}>
-        <CalendarContainer />
+        {auth && <CalendarContainer auth={auth} />}
       </Box>
     </Paper>
   );
