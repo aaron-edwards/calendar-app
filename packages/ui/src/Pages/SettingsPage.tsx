@@ -21,7 +21,7 @@ export default function SettingsPage() {
   );
   return (
     <Box>
-      <Typography variant="h3">Settings</Typography>
+      <Typography variant="h4">Settings</Typography>
       <List>
         <ListItem aria-label="dark-mode">
           <ListItemIcon />

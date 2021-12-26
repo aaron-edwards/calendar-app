@@ -49,7 +49,9 @@ function App() {
           </Paper>
         </Collapse>
       </Box>
-      <CalendarContainer />
+      <Box sx={{ width: '100%', height: '100%' }}>
+        <CalendarContainer />
+      </Box>
     </Paper>
   );
 }

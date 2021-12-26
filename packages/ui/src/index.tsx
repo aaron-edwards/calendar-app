@@ -2,6 +2,7 @@ import { CssBaseline } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { AuthProvider } from './AuthContext';
 import reportWebVitals from './reportWebVitals';
 import { SettingsProvider } from './SettingsContext';
 
@@ -9,7 +10,9 @@ ReactDOM.render(
   <React.StrictMode>
     <SettingsProvider>
       <CssBaseline />
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </SettingsProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -3655,6 +3655,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:6.0.10"
       ],
       [
+        "react-google-login",
+        "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.2.2"
+      ],
+      [
         "react-is",
         "npm:17.0.2"
       ],
@@ -18640,6 +18644,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-is", "npm:16.13.1"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:15.8.0", {
+          "packageLocation": "./.yarn/cache/prop-types-npm-15.8.0-6f60fc44c7-d8d51cf55d.zip/node_modules/prop-types/",
+          "packageDependencies": [
+            ["prop-types", "npm:15.8.0"],
+            ["loose-envify", "npm:1.4.0"],
+            ["object-assign", "npm:4.1.1"],
+            ["react-is", "npm:16.13.1"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["proxy-addr", [
@@ -18877,6 +18891,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-error-overlay-npm-6.0.10-3a2fed5ec4-e7384f086a.zip/node_modules/react-error-overlay/",
           "packageDependencies": [
             ["react-error-overlay", "npm:6.0.10"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["react-google-login", [
+        ["npm:5.2.2", {
+          "packageLocation": "./.yarn/cache/react-google-login-npm-5.2.2-b989308685-29199c7035.zip/node_modules/react-google-login/",
+          "packageDependencies": [
+            ["react-google-login", "npm:5.2.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.2.2", {
+          "packageLocation": "./.yarn/__virtual__/react-google-login-virtual-64c3d8cac0/0/cache/react-google-login-npm-5.2.2-b989308685-29199c7035.zip/node_modules/react-google-login/",
+          "packageDependencies": [
+            ["react-google-login", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.2.2"],
+            ["@types/react", "npm:17.0.37"],
+            ["@types/react-dom", "npm:17.0.11"],
+            ["prop-types", "npm:15.8.0"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/react-dom",
+            "@types/react",
+            "react-dom",
+            "react"
           ],
           "linkType": "HARD",
         }]
@@ -20826,6 +20867,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash.merge", "npm:4.6.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:17.0.2"],
+            ["react-google-login", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.2.2"],
             ["react-scripts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.0.0"],
             ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"],
             ["web-vitals", "npm:2.1.2"]
