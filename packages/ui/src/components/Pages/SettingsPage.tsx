@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 import React, { useCallback, useContext } from 'react';
-import { SettingsContext } from '../SettingsContext';
+import { SettingsContext } from '../../context/SettingsContext';
 
 export default function SettingsPage() {
   const { settings, updateSettings } = useContext(SettingsContext);

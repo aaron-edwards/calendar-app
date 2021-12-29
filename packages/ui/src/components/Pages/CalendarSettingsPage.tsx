@@ -13,8 +13,8 @@ import {
 } from '@mui/material';
 import { useContext, useEffect } from 'react';
 import useFetch from 'use-http';
-import { Auth, AuthContext } from '../AuthContext';
-import { SettingsContext } from '../SettingsContext';
+import { Auth, AuthContext } from '../../context/AuthContext';
+import { SettingsContext } from '../../context/SettingsContext';
 
 type CalendarSelectionProps = { auth: Auth };
 

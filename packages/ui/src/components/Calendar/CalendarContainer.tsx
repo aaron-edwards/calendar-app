@@ -2,11 +2,11 @@ import { Stack, Card } from '@mui/material';
 import { addWeeks, startOfWeek, parseISO, startOfDay } from 'date-fns';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { useFetch } from 'use-http';
-import { Auth } from '../AuthContext';
-import useTime from '../hooks/useTime';
-import { SettingsContext } from '../SettingsContext';
+import { Auth } from '../../context/AuthContext';
+import useTime from '../../hooks/useTime';
+import { SettingsContext } from '../../context/SettingsContext';
 import CalendarPage from './Calendar';
-import { Event } from '../types';
+import { Event } from '../../types';
 
 const UPDATE_TIME = 60_000 * 5;
 const WEEK_STARTS_ON = 1;

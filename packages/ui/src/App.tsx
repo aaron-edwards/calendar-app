@@ -1,7 +1,7 @@
 import { Box, Collapse, Paper } from '@mui/material';
 import { useCallback, useState } from 'react';
-import Menu from './Menu';
-import Pages, { Page } from './Pages';
+import Menu from './components/Menu';
+import Pages, { Page } from './components/Pages';
 
 type State = {
   page: Page;

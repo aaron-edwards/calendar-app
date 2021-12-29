@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import AuthenticationProvider from './Authentication';
 import reportWebVitals from './reportWebVitals';
-import { SettingsProvider } from './SettingsContext';
+import { SettingsProvider } from './context/SettingsContext';
 import './styles.css';
 
 const CLIENT_ID =

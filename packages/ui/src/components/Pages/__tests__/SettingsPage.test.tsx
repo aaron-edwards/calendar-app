@@ -5,8 +5,8 @@ import {
   defaultSettings,
   Settings,
   SettingsContext,
-} from '../../SettingsContext';
-import { DeepPartial } from '../../types';
+} from '../../../context/SettingsContext';
+import { DeepPartial } from '../../../types';
 import SettingsPage from '../SettingsPage';
 
 const settingsRenderer = (

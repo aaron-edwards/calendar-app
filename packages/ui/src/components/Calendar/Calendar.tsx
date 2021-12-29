@@ -7,7 +7,7 @@ import {
   isEqual,
   subMilliseconds,
 } from 'date-fns';
-import { Calendar, Event } from '../types';
+import { Calendar, Event } from '../../types';
 
 type CalendarEvent = Calendar & { events: Event[] };
 

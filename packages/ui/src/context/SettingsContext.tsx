@@ -9,7 +9,7 @@ import {
   Dispatch,
 } from 'react';
 import merge from 'lodash.merge';
-import { Calendar, DeepPartial } from './types';
+import { Calendar, DeepPartial } from '../types';
 
 export type Settings = {
   theme: {
