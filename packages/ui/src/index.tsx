@@ -1,18 +1,32 @@
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Paper } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { AuthProvider } from './AuthContext';
+import AuthenticationProvider from './Authentication';
 import reportWebVitals from './reportWebVitals';
 import { SettingsProvider } from './SettingsContext';
+import './styles.css';
+
+const CLIENT_ID =
+  '367871961450-kdu4665nnbbpl8bsmg2d6pseamtovhrf.apps.googleusercontent.com';
 
 ReactDOM.render(
   <React.StrictMode>
     <SettingsProvider>
       <CssBaseline />
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <Paper
+        id="main"
+        square
+        elevation={0}
+        sx={{
+          height: '100vh',
+          display: 'flex',
+        }}
+      >
+        <AuthenticationProvider clientId={CLIENT_ID}>
+          <App />
+        </AuthenticationProvider>
+      </Paper>
     </SettingsProvider>
   </React.StrictMode>,
   document.getElementById('root')
