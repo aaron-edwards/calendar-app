@@ -1,5 +1,6 @@
 import { Box, Collapse, Paper } from '@mui/material';
 import { useCallback, useState } from 'react';
+import CalendarContainer from './components/Calendar/CalendarContainer';
 import Menu from './components/Menu';
 import Pages, { Page } from './components/Pages';
 
@@ -41,7 +42,9 @@ function App() {
           </Paper>
         </Collapse>
       </Box>
-      <Box sx={{ width: '100%', height: '100%' }}>Hello</Box>
+      <Box sx={{ width: '100%', height: '100%' }}>
+        <CalendarContainer />
+      </Box>
     </>
   );
 }

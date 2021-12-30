@@ -2,10 +2,12 @@ import { CssBaseline, Paper } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import AuthenticationProvider from './Authentication';
 import reportWebVitals from './reportWebVitals';
 import { SettingsProvider } from './context/SettingsContext';
 import './styles.css';
+import { AuthenticationProvider } from './Authentication/AuthenticationContext';
+import LoadingScreen from './Authentication/LoadingScreen';
+import LoginScreen from './Authentication/LoginScreen';
 
 const CLIENT_ID =
   '367871961450-kdu4665nnbbpl8bsmg2d6pseamtovhrf.apps.googleusercontent.com';
@@ -23,7 +25,13 @@ ReactDOM.render(
           display: 'flex',
         }}
       >
-        <AuthenticationProvider clientId={CLIENT_ID}>
+        <AuthenticationProvider
+          clientId={CLIENT_ID}
+          loadingScreen={<LoadingScreen />}
+          loginScreen={(LoginButton) => (
+            <LoginScreen loginButton={<LoginButton width={250} />} />
+          )}
+        >
           <App />
         </AuthenticationProvider>
       </Paper>

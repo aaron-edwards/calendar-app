@@ -13,12 +13,10 @@ import {
 } from '@mui/material';
 import { useContext, useEffect } from 'react';
 import useFetch from 'use-http';
-import { Auth, AuthContext } from '../../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import { SettingsContext } from '../../context/SettingsContext';
 
-type CalendarSelectionProps = { auth: Auth };
-
-function CalendarSelection({ auth }: CalendarSelectionProps) {
+function CalendarSelection() {
   const { data } = useFetch<{
     items: {
       id: string;
@@ -26,15 +24,7 @@ function CalendarSelection({ auth }: CalendarSelectionProps) {
       backgroundColor: string;
       foregroundColor: string;
     }[];
-  }>(
-    'https://www.googleapis.com/calendar/v3/users/me/calendarList',
-    {
-      headers: {
-        Authorization: `${auth?.token.type} ${auth?.token.accessToken}`,
-      },
-    },
-    []
-  );
+  }>('/calendar/v3/users/me/calendarList', []);
   const { settings, setSettings, updateSettings } = useContext(SettingsContext);
 
   useEffect(() => {
@@ -130,7 +120,7 @@ export default function CalendarPage() {
           )}
         </List>
       </Stack>
-      {auth && <CalendarSelection auth={auth} />}
+      <CalendarSelection />
     </Stack>
   );
 }

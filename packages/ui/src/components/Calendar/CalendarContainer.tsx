@@ -1,8 +1,6 @@
-import { Stack, Card } from '@mui/material';
 import { addWeeks, startOfWeek, parseISO, startOfDay } from 'date-fns';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { useFetch } from 'use-http';
-import { Auth } from '../../context/AuthContext';
 import useTime from '../../hooks/useTime';
 import { SettingsContext } from '../../context/SettingsContext';
 import CalendarPage from './Calendar';
@@ -14,7 +12,7 @@ const WEEKS_TO_DISPLAY = 5;
 
 type Events = Record<string, Event[]>;
 
-export default function CalendarContainer({ auth }: { auth: Auth }) {
+export default function CalendarContainer() {
   const {
     settings: { calendar },
   } = useContext(SettingsContext);
@@ -30,11 +28,7 @@ export default function CalendarContainer({ auth }: { auth: Auth }) {
       start: { dateTime: string; date: string };
       end: { dateTime: string; date: string };
     }[];
-  }>('https://www.googleapis.com/calendar/v3/calendars', {
-    headers: {
-      Authorization: `${auth?.token.type} ${auth?.token.accessToken}`,
-    },
-  });
+  }>('/calendar/v3/calendars');
 
   useEffect(() => {
     setEvents((e) =>
@@ -69,27 +63,6 @@ export default function CalendarContainer({ auth }: { auth: Auth }) {
         });
       });
   }, [calendar.calendars, currentTime]);
-
-  if (!auth) {
-    return (
-      <Stack
-        sx={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}
-      >
-        <Card
-          elevation={12}
-          sx={{
-            width: 250,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: 2,
-          }}
-        >
-          Login to view calendar
-        </Card>
-      </Stack>
-    );
-  }
 
   const calendarEvents = useMemo(
     () =>
