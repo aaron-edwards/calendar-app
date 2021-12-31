@@ -1,4 +1,4 @@
-import { SettingsTwoTone, TodayTwoTone } from '@mui/icons-material';
+import { SettingsTwoTone } from '@mui/icons-material';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useCallback } from 'react';
 import { Page } from './Pages';
@@ -23,13 +23,6 @@ const Menu = ({ page, setPage }: Props) => {
     >
       <ToggleButton value={Page.Settings} aria-label="settings">
         <SettingsTwoTone />
-      </ToggleButton>
-
-      <ToggleButton
-        value={Page.CalendarSettings}
-        aria-label="calendar settings"
-      >
-        <TodayTwoTone />
       </ToggleButton>
     </ToggleButtonGroup>
   );
