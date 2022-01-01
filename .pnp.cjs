@@ -851,6 +851,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.0.50"
       ],
       [
+        "@types/gapi",
+        "npm:0.0.41"
+      ],
+      [
+        "@types/gapi.auth2",
+        "npm:0.0.55"
+      ],
+      [
         "@types/graceful-fs",
         "npm:4.1.5"
       ],
@@ -8683,6 +8691,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-estree-npm-0.0.50-b9bc3b8409-9a2b6a4a8c.zip/node_modules/@types/estree/",
           "packageDependencies": [
             ["@types/estree", "npm:0.0.50"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/gapi", [
+        ["npm:0.0.41", {
+          "packageLocation": "./.yarn/cache/@types-gapi-npm-0.0.41-a3ffbf13bb-1fcb42de9f.zip/node_modules/@types/gapi/",
+          "packageDependencies": [
+            ["@types/gapi", "npm:0.0.41"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/gapi.auth2", [
+        ["npm:0.0.55", {
+          "packageLocation": "./.yarn/cache/@types-gapi.auth2-npm-0.0.55-da66f34a10-e6afb5d350.zip/node_modules/@types/gapi.auth2/",
+          "packageDependencies": [
+            ["@types/gapi.auth2", "npm:0.0.55"],
+            ["@types/gapi", "npm:0.0.41"]
           ],
           "linkType": "HARD",
         }]
@@ -20820,6 +20847,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.2"],
             ["@testing-library/react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.0.2"],
             ["@testing-library/user-event", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.5.0"],
+            ["@types/gapi.auth2", "npm:0.0.55"],
             ["@types/jest", "npm:27.0.3"],
             ["@types/lodash.merge", "npm:4.6.6"],
             ["@types/node", "npm:16.11.14"],

@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.2.4",
     "@mui/material": "^5.2.4",
+    "@types/gapi.auth2": "^0.0.55",
     "@types/jest": "^27.0.3",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^16.11.14",
@@ -39,6 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "resetMocks": false
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
