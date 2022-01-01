@@ -5,7 +5,7 @@ import useScript from './useScript';
 const JS_SRC = 'https://apis.google.com/js/api.js';
 export const ID = 'google-api';
 
-type User = {
+export type User = {
   auth: gapi.auth2.AuthResponse;
   profile: {
     id: string;
@@ -33,7 +33,7 @@ function toUser(googleUser: gapi.auth2.GoogleUser): User {
   };
 }
 
-type Options = {
+export type GoogleAuthOptions = {
   scope?: string;
   autoSignIn?: boolean;
   autoSignInOptions?: gapi.auth2.SigninOptions;
@@ -41,10 +41,11 @@ type Options = {
 
 export default function useGoogleAuth(
   clientId: string,
-  { scope, autoSignIn = false, autoSignInOptions }: Options = {}
+  { scope, autoSignIn = false, autoSignInOptions }: GoogleAuthOptions = {}
 ) {
   const isMounted = useIsMounted();
   const [user, setUser] = useState<User>();
+  const [loaded, setLoaded] = useState(false);
 
   const setGoogleUser = useCallback((googleUser: gapi.auth2.GoogleUser) => {
     setUser(googleUser.isSignedIn() ? toUser(googleUser) : undefined);
@@ -59,11 +60,16 @@ export default function useGoogleAuth(
     () => gapi.auth2.getAuthInstance()?.signOut(),
     []
   );
+  const reload = useCallback(
+    () => gapi.auth2.getAuthInstance()?.currentUser?.get().reloadAuthResponse(),
+    []
+  );
 
   const onload = () => {
     gapi.load('auth2', () => {
       gapi.auth2.init({ client_id: clientId, scope }).then(() => {
         if (isMounted()) {
+          setLoaded(true);
           const GoogleAuth = gapi.auth2.getAuthInstance();
           const googleUser = GoogleAuth.currentUser.get();
           setGoogleUser(googleUser);
@@ -80,8 +86,10 @@ export default function useGoogleAuth(
   useScript(JS_SRC, { id: ID, async: true, onload });
 
   return {
+    loaded,
     user,
     signIn,
     signOut,
+    reload,
   };
 }

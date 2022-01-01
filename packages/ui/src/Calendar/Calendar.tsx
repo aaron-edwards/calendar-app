@@ -16,9 +16,16 @@ type Props = {
   startOfDay: Date;
   end: Date;
   calendars: CalendarEvent[];
+  mobile?: boolean;
 };
 
-function CalendarPage({ start, end, calendars, startOfDay }: Props) {
+function CalendarPage({
+  start,
+  end,
+  calendars,
+  startOfDay,
+  mobile = false,
+}: Props) {
   const daysToDisplay = differenceInCalendarDays(end, start);
   const columns = Math.min(7, daysToDisplay);
   const theme = useTheme();
@@ -50,7 +57,7 @@ function CalendarPage({ start, end, calendars, startOfDay }: Props) {
               }}
             >
               <Typography variant="h5" textAlign="center">
-                {format(day, 'EEEE')}
+                {format(day, mobile ? 'E' : 'EEEE')}
               </Typography>
             </Grid>
           );
