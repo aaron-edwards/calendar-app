@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "https://aaron-edwards.github.io/calendar-app/static/js/main.d9f576ed.js",
+    "main.js": "https://aaron-edwards.github.io/calendar-app/static/js/main.d053a22a.js",
     "static/js/20.3728f48e.chunk.js": "https://aaron-edwards.github.io/calendar-app/static/js/20.3728f48e.chunk.js",
     "index.html": "https://aaron-edwards.github.io/calendar-app/index.html",
-    "main.d9f576ed.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/main.d9f576ed.js.map",
+    "main.d053a22a.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/main.d053a22a.js.map",
     "20.3728f48e.chunk.js.map": "https://aaron-edwards.github.io/calendar-app/static/js/20.3728f48e.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.d9f576ed.js"
+    "static/js/main.d053a22a.js"
   ]
 }
