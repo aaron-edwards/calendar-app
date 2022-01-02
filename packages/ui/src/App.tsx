@@ -1,60 +1,26 @@
-import { Box, Collapse, Paper } from '@mui/material';
-import { useCallback, useContext, useState } from 'react';
+import { Box, Theme, useMediaQuery } from '@mui/material';
+import { useContext } from 'react';
 import { AuthenticationContext } from './Authentication/AuthenticationContext';
 import CalendarContainer from './Calendar/CalendarContainer';
-import Menu from './Menu';
-import Pages, { Page } from './Pages';
-
-type State = {
-  page: Page;
-  menuOpen: boolean;
-};
+import Drawer from './components/Drawer';
 
 function App() {
-  const [{ page, menuOpen }, setState] = useState<State>({
-    page: Page.Settings,
-    menuOpen: false,
-  });
   const { user } = useContext(AuthenticationContext);
-  const setPage = useCallback(
-    (newPage: Page) => {
-      if (newPage) {
-        setState({ menuOpen: true, page: newPage });
-      } else {
-        setState((state) => ({ menuOpen: false, page: state.page }));
-      }
-    },
-    [setState]
+  const isMobile = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down('sm')
   );
 
   return (
-    <Paper
-      square
-      elevation={0}
+    <Box
       sx={{
         height: '100vh',
         display: 'flex',
+        flexDirection: isMobile ? 'column-reverse' : 'row',
       }}
     >
-      <Box sx={{ display: 'flex' }}>
-        <Paper sx={{ zIndex: 1 }} square elevation={4}>
-          <Menu page={menuOpen ? page : undefined} setPage={setPage} />
-        </Paper>
-        <Collapse
-          orientation="horizontal"
-          in={menuOpen}
-          mountOnEnter
-          unmountOnExit
-        >
-          <Paper square elevation={2} sx={{ height: '100%', width: 300 }}>
-            <Pages page={page} />
-          </Paper>
-        </Collapse>
-      </Box>
-      <Box sx={{ width: '100%', height: '100%' }}>
-        {user && <CalendarContainer user={user} />}
-      </Box>
-    </Paper>
+      <Drawer orientation={isMobile ? 'horizontal' : 'vertical'} />
+      {user && <CalendarContainer user={user} />}
+    </Box>
   );
 }
 

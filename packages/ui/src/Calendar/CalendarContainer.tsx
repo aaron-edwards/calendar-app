@@ -1,7 +1,7 @@
 import { addWeeks, startOfWeek, parseISO, startOfDay, addDays } from 'date-fns';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { useFetch } from 'use-http';
-import { useMediaQuery } from '@mui/material';
+import { Theme, useMediaQuery } from '@mui/material';
 import useTime from '../hooks/useTime';
 import { SettingsContext } from '../SettingsContext';
 import CalendarPage from './Calendar';
@@ -19,11 +19,19 @@ export default function CalendarContainer({ user }: { user: User }) {
   } = useContext(SettingsContext);
   const currentTime = useTime(UPDATE_TIME);
   const [events, setEvents] = useState<Events>({});
-  const mobile = useMediaQuery('(max-width:600px)');
+  const mobile = useMediaQuery((theme: Theme) =>
+    theme?.breakpoints?.down('sm')
+  );
+  const dayFormat = useMediaQuery((theme: Theme) =>
+    theme?.breakpoints?.down('md')
+  )
+    ? 'E'
+    : 'EEEE';
   const start = mobile
     ? startOfDay(currentTime)
     : startOfWeek(currentTime, { weekStartsOn: WEEK_STARTS_ON });
   const weeksToDisplay = useMediaQuery('(max-height: 600px)') ? 2 : 5;
+
   const end = mobile ? addDays(start, 3) : addWeeks(start, weeksToDisplay);
 
   const { get } = useFetch<{
@@ -90,7 +98,7 @@ export default function CalendarContainer({ user }: { user: User }) {
       startOfDay={startOfDay(currentTime)}
       end={end}
       calendars={calendarEvents}
-      mobile={mobile}
+      dayFormat={dayFormat}
     />
   );
 }

@@ -16,7 +16,7 @@ type Props = {
   startOfDay: Date;
   end: Date;
   calendars: CalendarEvent[];
-  mobile?: boolean;
+  dayFormat?: string;
 };
 
 function CalendarPage({
@@ -24,11 +24,12 @@ function CalendarPage({
   end,
   calendars,
   startOfDay,
-  mobile = false,
+  dayFormat = 'EEEE',
 }: Props) {
   const daysToDisplay = differenceInCalendarDays(end, start);
   const columns = Math.min(7, daysToDisplay);
   const theme = useTheme();
+
   const borderColour =
     theme.palette.grey[theme.palette.mode === 'dark' ? 800 : 200];
   const highlightColour =
@@ -57,7 +58,7 @@ function CalendarPage({
               }}
             >
               <Typography variant="h5" textAlign="center">
-                {format(day, mobile ? 'E' : 'EEEE')}
+                {format(day, dayFormat)}
               </Typography>
             </Grid>
           );
