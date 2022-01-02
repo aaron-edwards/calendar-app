@@ -7,14 +7,10 @@ import { Page } from '../Pages';
 type Props = {
   page?: Page;
   setPage: (page: Page) => void;
-  orientation?: 'horizontal' | 'vertical';
+  mobile?: boolean;
 };
 
-export default function Menu({
-  page,
-  setPage,
-  orientation = 'vertical',
-}: Props) {
+export default function Menu({ page, setPage, mobile = false }: Props) {
   const { user } = useContext(AuthenticationContext);
   const handleChange = useCallback(
     (_, nextView) => setPage(nextView),
@@ -22,7 +18,7 @@ export default function Menu({
   );
   return (
     <ToggleButtonGroup
-      orientation={orientation}
+      orientation={mobile ? 'horizontal' : 'vertical'}
       exclusive
       value={page}
       onChange={handleChange}

@@ -22,11 +22,6 @@ export default function CalendarContainer({ user }: { user: User }) {
   const mobile = useMediaQuery((theme: Theme) =>
     theme?.breakpoints?.down('sm')
   );
-  const dayFormat = useMediaQuery((theme: Theme) =>
-    theme?.breakpoints?.down('md')
-  )
-    ? 'E'
-    : 'EEEE';
   const start = mobile
     ? startOfDay(currentTime)
     : startOfWeek(currentTime, { weekStartsOn: WEEK_STARTS_ON });
@@ -98,7 +93,6 @@ export default function CalendarContainer({ user }: { user: User }) {
       startOfDay={startOfDay(currentTime)}
       end={end}
       calendars={calendarEvents}
-      dayFormat={dayFormat}
     />
   );
 }

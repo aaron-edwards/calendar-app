@@ -12,20 +12,18 @@ const pages: Record<Page, JSX.Element> = {
   [Page.User]: <div>User</div>,
 };
 
-export default function SidePages({
-  page,
-  isMobile,
-}: {
-  page: Page;
-  isMobile: boolean;
-}) {
+export default function SidePages({ page }: { page: Page }) {
   return (
     <Box
-      sx={{
-        width: isMobile ? undefined : 300,
-        height: isMobile ? 300 : undefined,
+      sx={(theme) => ({
         overflowY: 'scroll',
-      }}
+        [theme.breakpoints.down('sm')]: {
+          height: 300,
+        },
+        [theme.breakpoints.up('sm')]: {
+          width: 300,
+        },
+      })}
     >
       {pages[page]}
     </Box>
