@@ -21,7 +21,7 @@ describe('<Calendar />', () => {
         );
 
         const dayNames = Array.from({ length: 7 }, (_, index) =>
-          format(addDays(MONDAY_6_12, index), 'EEEE')
+          format(addDays(MONDAY_6_12, index), 'E')
         ).join('');
         expect(baseElement).toHaveTextContent(dayNames);
       });
@@ -36,28 +36,32 @@ describe('<Calendar />', () => {
           />
         );
         const dayNames = Array.from({ length: 3 }, (_, index) =>
-          format(addDays(TUES_7_12, index), 'EEEE')
+          format(addDays(TUES_7_12, index), 'E')
         ).join('');
         expect(baseElement).toHaveTextContent(dayNames);
       });
     });
+
     describe('dates', () => {
-      it('should display all the dates', () => {
+      it('should display month for 1st of month and date for the rest', () => {
         const { baseElement } = render(
           <Calendar
-            start={MONDAY_6_12}
-            end={FRIDAY_31_12}
+            start={new Date('2021-12-01')}
+            end={new Date('2021-12-31')}
             startOfDay={TUES_7_12}
             calendars={calendars}
           />
         );
         const expected = Array.from(
           {
-            length: differenceInCalendarDays(FRIDAY_31_12, MONDAY_6_12),
+            length: differenceInCalendarDays(
+              new Date('2021-12-31'),
+              new Date('2021-12-02')
+            ),
           },
-          (_, i) => format(addDays(MONDAY_6_12, i), 'MMM dd')
+          (_, i) => format(addDays(new Date('2021-12-02'), i), 'dd')
         ).join('');
-        expect(baseElement).toHaveTextContent(expected);
+        expect(baseElement).toHaveTextContent(`Dec${expected}`);
       });
     });
   });
