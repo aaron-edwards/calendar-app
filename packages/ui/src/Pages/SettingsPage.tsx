@@ -15,7 +15,9 @@ export default function SettingsPage() {
   const updateThemeMode = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
       updateSettings({
-        theme: { palette: { mode: e.target.checked ? 'dark' : 'light' } },
+        global: {
+          theme: { palette: { mode: e.target.checked ? 'dark' : 'light' } },
+        },
       }),
     [updateSettings]
   );
@@ -33,7 +35,7 @@ export default function SettingsPage() {
               inputProps={{
                 'aria-labelledby': 'dark-mode-label',
               }}
-              checked={settings.theme.palette.mode === 'dark'}
+              checked={settings.global.theme.palette.mode === 'dark'}
               onChange={updateThemeMode}
             />
           </ListItem>

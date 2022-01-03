@@ -12,20 +12,20 @@ const scope = 'https://www.googleapis.com/auth/calendar.readonly';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthenticationProvider
-      clientId={CLIENT_ID}
-      googleAuthOptions={{
-        scope,
-        autoSignIn: true,
-        autoSignInOptions: { prompt: 'select_account ' },
-      }}
-      reloadTime={45 * 60 * 1000}
-    >
-      <SettingsProvider>
+    <SettingsProvider>
+      <AuthenticationProvider
+        clientId={CLIENT_ID}
+        googleAuthOptions={{
+          scope,
+          autoSignIn: true,
+          autoSignInOptions: { prompt: 'select_account ' },
+        }}
+        reloadTime={45 * 60 * 1000}
+      >
         <CssBaseline />
         <App />
-      </SettingsProvider>
-    </AuthenticationProvider>
+      </AuthenticationProvider>
+    </SettingsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

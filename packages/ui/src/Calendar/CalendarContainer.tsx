@@ -1,90 +1,44 @@
-import { addWeeks, startOfWeek, parseISO, startOfDay, addDays } from 'date-fns';
-import { useContext, useEffect, useMemo, useState } from 'react';
-import { useFetch } from 'use-http';
+import { addWeeks, startOfWeek, startOfDay, addDays } from 'date-fns';
+import { useMemo } from 'react';
 import { Theme, useMediaQuery } from '@mui/material';
 import useTime from '../hooks/useTime';
-import { SettingsContext } from '../SettingsContext';
 import CalendarPage from './Calendar';
-import { Event } from '../types';
 import { User } from '../hooks/useGoogleAuth';
+import useCalendars from '../hooks/useCalendars';
+import useEvents from '../hooks/useEvents';
+import useInterval from '../hooks/useInterval';
 
 const UPDATE_TIME = 60_000 * 5;
 const WEEK_STARTS_ON = 1;
 
-type Events = Record<string, Event[]>;
-
 export default function CalendarContainer({ user }: { user: User }) {
-  const {
-    settings: { calendar },
-  } = useContext(SettingsContext);
+  const { calendars } = useCalendars(user);
+  const calendarIds = useMemo(
+    () => new Set(Object.keys(calendars)),
+    [calendars]
+  );
+
   const currentTime = useTime(UPDATE_TIME);
-  const [events, setEvents] = useState<Events>({});
   const mobile = useMediaQuery((theme: Theme) =>
     theme?.breakpoints?.down('sm')
   );
   const start = mobile
     ? startOfDay(currentTime)
     : startOfWeek(currentTime, { weekStartsOn: WEEK_STARTS_ON });
-  const weeksToDisplay = useMediaQuery('(max-height: 600px)') ? 2 : 5;
-
+  const weeksToDisplay = 3;
   const end = mobile ? addDays(start, 3) : addWeeks(start, weeksToDisplay);
-
-  const { get } = useFetch<{
-    items: {
-      id: string;
-      summary: string;
-      start: { dateTime: string; date: string };
-      end: { dateTime: string; date: string };
-    }[];
-  }>('https://www.googleapis.com/calendar/v3/calendars', {
-    headers: {
-      Authorization: `Bearer ${user.auth.access_token}`,
-    },
-  });
-
-  useEffect(() => {
-    setEvents((e) =>
-      Object.values(calendar?.calendars || []).reduce((acc, cal) => {
-        if (cal.displayed) {
-          acc[cal.id] = e[cal.id];
-        }
-        return acc;
-      }, {})
-    );
-    Object.values(calendar?.calendars || {})
-      .filter((c) => c.displayed)
-      .forEach((cal) => {
-        get(
-          `${encodeURIComponent(
-            cal.id
-          )}/events?timeMin=${start.toISOString()}&timeMax=${end.toISOString()}`
-        ).then((result) => {
-          setEvents((evts) => ({
-            ...evts,
-            [cal.id]: result.items.map((e) => ({
-              id: e.id,
-              title: e.summary,
-              start: e.start.dateTime
-                ? parseISO(e.start.dateTime)
-                : parseISO(e.start.date),
-              end: e.end.dateTime
-                ? parseISO(e.end.dateTime)
-                : parseISO(e.end.date),
-            })),
-          }));
-        });
-      });
-  }, [calendar.calendars, currentTime]);
+  const { events, refresh } = useEvents(user, calendarIds, start, end);
+  useInterval(refresh, UPDATE_TIME);
 
   const calendarEvents = useMemo(
     () =>
-      Object.values(calendar.calendars ?? {})
+      Object.values(calendars ?? {})
         .map((c) => ({
           ...c,
           events: events[c.id] ?? [],
         }))
         .filter((c) => c.events.length >= 1),
-    [(calendar.calendars, events)]
+    [calendars, events]
   );
 
   return (

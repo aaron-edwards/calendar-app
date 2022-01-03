@@ -95,7 +95,7 @@ function CalendarPage({ start, end, calendars, startOfDay }: Props) {
                 .filter(
                   (e) =>
                     e.start.getTime() <= endTimestamp &&
-                    e.end.getTime() >= timestamp
+                    e.end.getTime() > timestamp
                 )
                 .map((e) => (
                   <Box

@@ -39,7 +39,7 @@ describe('<SettingsPage />', () => {
           const updateSettings = jest.fn();
           const { getByRole } = settingsRenderer(
             <SettingsPage />,
-            { theme: { palette: { mode: initial } } },
+            { global: { theme: { palette: { mode: initial } } } },
             updateSettings
           );
           const darkModeToggle = getByRole('checkbox', {
@@ -52,7 +52,7 @@ describe('<SettingsPage />', () => {
           }
           darkModeToggle.click();
           expect(updateSettings).toHaveBeenCalledWith({
-            theme: { palette: { mode: result } },
+            global: { theme: { palette: { mode: result } } },
           });
         }
       );

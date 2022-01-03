@@ -35,7 +35,6 @@ export default function MiniDrawer() {
 
   return (
     <MuiDrawer
-      // anchor={orientation === 'vertical' ? 'left' : 'bottom'}
       anchor={isMobile ? 'bottom' : 'left'}
       variant="permanent"
       open={menuOpen}

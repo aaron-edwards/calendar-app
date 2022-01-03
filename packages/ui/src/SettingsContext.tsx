@@ -12,29 +12,33 @@ import merge from 'lodash.merge';
 import { Calendar, DeepPartial } from './types';
 
 export type Settings = {
-  theme: {
-    palette: {
-      mode: 'light' | 'dark';
-      primary: { main: string };
-      secondary: { main: string };
+  global: {
+    theme: {
+      palette: {
+        mode: 'light' | 'dark';
+        primary: { main: string };
+        secondary: { main: string };
+      };
     };
   };
-  calendar: {
-    calendars?: Record<string, Calendar>;
+  user: {
+    calendars: Record<string, Calendar>;
   };
 };
 
 type UpdateSettings = (newSettings: DeepPartial<Settings>) => void;
 
 export const defaultSettings: Settings = {
-  theme: {
-    palette: {
-      mode: 'dark',
-      primary: { main: '#009688' },
-      secondary: { main: '#f44336' },
+  global: {
+    theme: {
+      palette: {
+        mode: 'light',
+        primary: { main: '#009688' },
+        secondary: { main: '#f44336' },
+      },
     },
   },
-  calendar: {
+  user: {
     calendars: {},
   },
 };
@@ -51,14 +55,15 @@ export const SettingsContext = createContext<{
 
 export const SettingsProvider: FC = ({ children }) => {
   const [settings, setSettings] = useState<Settings>(defaultSettings);
+
   const updateSettings = useCallback(
     (newSettings: DeepPartial<Settings>) =>
       setSettings((s) => merge({}, s, newSettings)),
     [setSettings]
   );
   const theme = useMemo<Theme>(
-    () => createTheme(settings.theme),
-    [settings.theme]
+    () => createTheme(settings.global.theme),
+    [settings.global.theme]
   );
   const value = useMemo(
     () => ({ settings, updateSettings, setSettings }),

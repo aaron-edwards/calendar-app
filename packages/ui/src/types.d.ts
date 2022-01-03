@@ -8,6 +8,9 @@ export type Calendar = {
   backgroundColor: string;
   foregroundColor: string;
   displayed: boolean;
+
+  selected: boolean;
+  primary: boolean;
 };
 
 type Event = {

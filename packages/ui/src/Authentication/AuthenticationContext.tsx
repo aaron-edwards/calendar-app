@@ -1,6 +1,7 @@
-import { createContext, useMemo } from 'react';
+import { createContext, useCallback, useContext, useMemo } from 'react';
 import useGoogleAuth, { GoogleAuthOptions, User } from '../hooks/useGoogleAuth';
 import useInterval from '../hooks/useInterval';
+import { SettingsContext } from '../SettingsContext';
 
 type AuthContext = {
   user?: User;
@@ -25,19 +26,32 @@ export function AuthenticationProvider({
   reloadTime,
   googleAuthOptions,
 }: Props) {
+  const { setSettings } = useContext(SettingsContext);
   const { user, signIn, signOut, reload } = useGoogleAuth(
     clientId,
     googleAuthOptions
   );
+  const signOutAndClear = useCallback(() => {
+    setSettings((settings) => ({
+      ...settings,
+      user: {
+        calendars: {},
+      },
+    }));
+
+    signOut();
+  }, [signOut, setSettings]);
+
   const value = useMemo(
     () => ({
       user,
       signIn,
-      signOut,
+      signOut: signOutAndClear,
     }),
-    [user, signIn, signOut]
+    [user, signIn, signOutAndClear]
   );
   useInterval(() => reload(), reloadTime && user ? reloadTime : null);
+
   return (
     <AuthenticationContext.Provider value={value}>
       {children}
