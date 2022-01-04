@@ -3990,7 +3990,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     gh-pages: ^3.2.3
     prettier: ^2.5.1
-    typescript: ^4.5.4
+    typescript: 4.5.4
   languageName: unknown
   linkType: soft
 
@@ -12059,7 +12059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.5.4":
+"typescript@npm:4.5.4, typescript@npm:^4.5.4":
   version: 4.5.4
   resolution: "typescript@npm:4.5.4"
   bin:
@@ -12069,7 +12069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.5.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>":
   version: 4.5.4
   resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"
   bin:
