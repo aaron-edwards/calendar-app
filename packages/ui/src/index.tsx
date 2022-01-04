@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { SettingsProvider } from './SettingsContext';
 
 const CLIENT_ID =
-  '367871961450-kdu4665nnbbpl8bsmg2d6pseamtovhrf.apps.googleusercontent.com';
+  '948086127776-njpb7hdklviicrkjuukf25p2torr0vru.apps.googleusercontent.com';
 const scope = 'https://www.googleapis.com/auth/calendar.readonly';
 
 ReactDOM.render(
